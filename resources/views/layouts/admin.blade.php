@@ -15,7 +15,7 @@
         }
 
         .bg-yellow {
-            background-color: #f6f317;
+            background-color: #EEEB1B;
         }
 
         .nav-item {
@@ -27,7 +27,7 @@
             background-color: #f12d49;
             color: #fff;
             font-size: 16px;
-            padding: 0.5rem;
+            padding: 0.6rem;
             border: none;
             border-radius: 0.25rem;
             text-decoration: none;
@@ -89,124 +89,38 @@
             text-decoration: none;
         }
 
-        .dropdown-item {
-            display: block;
-            width: 100%;
-            clear: both;
-            font-weight: 400;
-            color: #fff;
-            text-align: inherit;
-            white-space: nowrap;
-            background-color: transparent;
-            border: 0;
-        }
-
-        .dropdown-toggle::after {
-            display: inline-block;
-            color: #fff;
-            width: 0;
-            height: 0;
-            margin-left: .255em;
-            vertical-align: .255em;
-            content: "";
-            border-top: .3em solid;
-            border-right: .3em solid transparent;
-            border-bottom: 0;
-            border-left: .3em solid transparent;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-            color: #fff;
-        }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
-            display: none;
-            min-width: 10rem;
-            padding: .5rem 0;
-            margin: .125rem 0 0;
-            font-size: 1rem;
-            color: #fff;
-            text-align: left;
-            list-style: none;
-            background-color: #f12d49;
-            background-clip: padding-box;
-            border: 1px solid rgba(0,0,0,.15);
-            border-radius: .25rem;
-        }
-
-        .dropdown-item:hover,
-        .dropdown-item:focus {
-            color: #fff;
-            text-decoration: none;
-            background-color: #C61F3B;
-        }
         .brand img {
             width: 250px;
             height: auto;
-            margin: 0px;
         }
 
-        .brands img {
-            justify-content: center;
-            align-items: center;
-            width: 1px;
+        .admin {
+            width: 50px;
             height: auto;
-            padding: 20px;
-            padding-right: 40px;
-            padding-left: 40px;
-            background-color: #f6f317;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        .enc  {
-            margin: 0px;
+            margin-left: 20px;
+            margin-right: 20px;
         }
     </style>
 </head>
 <body>
     <div id="app" class="app">
-        <nav class="navbar navbar-expand-md bg-yellow navbar-light shadow-sm">
-        <a href="admin" class="brands"><img src="{{ asset('images/logo_pagina.png') }}" alt="logo_pagina"></a>
-            <div class="enc container">
-                <a href="/" class="brand"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
+        <nav class="navbar navbar-expand-md fond bg-yellow navbar-light shadow-sm">
+            <div class="container">
+                <a href="/admin" class="admin"><img class="admin" src="{{ asset('images/logo_admin.png') }}" alt="logo_admiin"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-blue btn btn-danger" href="{{ route('login') }}">{{ __('Iniciar sesion') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-blue btn btn-danger" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                                </li>
-                            @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-blue btn btn-danger" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">{{ __('Cerrar sesión') }}</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
+                        <li class="nav-item">
+                            <a href="/admin/productos" class="nav-link btn btn-blue bton btn-danger">Productos</a>
                         </li>
-                        @endguest
+                        <li class="nav-item">
+                            <a href="/admin/categorias" class="nav-link btn btn-blue bton btn-danger">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link btn btn-blue bton btn-danger">Volver al menu principal</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -236,6 +150,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 

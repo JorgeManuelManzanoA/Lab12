@@ -68,11 +68,11 @@
                         <div class="form-row mb-3">
                             <div class="col-md-6 icon-label">
                                 <img src="{{ asset('images/nombre_usuario.png') }}">
-                                <label for="name" class="col-form-label text-md-end">{{ __('Nombre') }}</label>
+                                <label for="name" class="col-form-label text-md-end" >{{ __('Nombre') }}</label>
                             </div>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                    value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    value="{{ old('name') }}" required autocomplete="name" onfocus="changeBorderColor(this)" onblur="resetBorderColor(this)">
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" required autocomplete="email">
+                                    value="{{ old('email') }}" required autocomplete="email" onfocus="changeBorderColor(this)" onblur="resetBorderColor(this)">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -102,7 +102,7 @@
                             </div>
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                                    name="password" required autocomplete="new-password">
+                                    name="password" required autocomplete="new-password" onfocus="changeBorderColor(this)" onblur="resetBorderColor(this)">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -117,12 +117,12 @@
                             </div>
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                                    required autocomplete="new-password">
+                                    required autocomplete="new-password" onfocus="changeBorderColor(this)" onblur="resetBorderColor(this)">
                             </div>
                         </div>
                         <div class="form-row mb-3">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-blue bton">
+                                <button type="submit" class="btn btn-blue bton btn btn-danger">
                                     {{ __('Registrar') }}
                                 </button>
                             </div>
@@ -133,6 +133,17 @@
         </div>
     </div>
 </div>
+<script>
+        function changeBorderColor(element) {
+            element.style.borderColor = '#EA8181';
+            element.style.boxShadow = '0 0 0 0.2rem #EA8181';
+        }
+        
+        function resetBorderColor(element) {
+            element.style.borderColor = '';
+            element.style.boxShadow = '';
+        }
+</script>
 @endsection
 
 

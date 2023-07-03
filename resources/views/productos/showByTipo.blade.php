@@ -15,16 +15,20 @@
         }
 
         .nom {
-          font-size: 1.5rem;
+            font-size: 1.4rem;
         }
         .card-text {
             font-size: 1.2rem;
-            margin-top: 10px;
-            margin-bottom: 7px;
+            margin-top: 6px;
+            margin-bottom: 11px;
         }
 
         .card {
-            height: 400px;
+            height: 420px;
+        }
+
+        .bton {
+            font-size: 0.9rem;
         }
 
         .name {
@@ -34,6 +38,14 @@
             height: 70px;
         }
 
+        .card img {
+            padding: 20px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .card img:hover {
+            filter: brightness(55%);
+        }
     </style>
 </head>
 <main>
@@ -43,18 +55,14 @@
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                     <a href="{{ route('productos.show', [$producto->tipo, $producto->nombre]) }}">
-                        <img src="{{ asset('images/'.$producto->imagen) }}" alt="{{ $producto->nombre }}" width="100%" height="225">
+                        <img src="{{ asset('images/'.$producto->imagen) }}" alt="{{ $producto->nombre }}" width="100%" height="280">
                     </a>
                     <div class="card-body">
                         <div class="name">
                             <h2 class="text-center nom">{{ $producto->nombre }}</h2>
                         </div>
                         <div class="price">
-                          <p class="card-text text-center">Precio: S/.{{ $producto->precio }}</p>
-                          <div class="d-flex justify-content-center align-items-center">
-                              <a href="{{ route('productos.show', [$producto->tipo, $producto->nombre]) }}" style="font-size: 0.8rem"
-                                class="btn btn-sm btn-outline-secondary">Ver detalles</a>
-                          </div>
+                            <p class="card-text text-center">Precio: S/.{{ $producto->precio }}</p>
                         </div>
                     </div>
                 </div>
@@ -64,5 +72,4 @@
     </div>
 </main>
 @endsection
-
 

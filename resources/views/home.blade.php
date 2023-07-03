@@ -39,6 +39,10 @@
         .main-container {
           margin-top: -24px;
         }
+
+        .card img:hover {
+            filter: brightness(55%);
+        }
     </style>
 </head>
 <body>
@@ -72,7 +76,7 @@
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <a href="{{ route('productos.showByTipo', ['tipo' => $tipo->nombre_tipo]) }}">
-              <img src="{{ asset('images/'.$tipo->imagen) }}" alt="{{ $tipo->nombre_tipo }}" class="img-fluid" style="height: 250px;">
+              <img src="{{ asset('images/'.$tipo->imagen) }}" alt="{{ $tipo->nombre_tipo }}" class="img-fluid" style="display:block; margin-left:auto; margin-right: auto; height: 250px;">
             </a>
             <div class="card-body">
               <p class="card-text" style="font-size: 1.4rem;">{{ $tipo->nombre_tipo }}</p>
